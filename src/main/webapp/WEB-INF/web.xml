@@ -1,0 +1,25 @@
+<!DOCTYPE web-app PUBLIC
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+    <display-name>Archetype Created Web Application</display-name>
+    <!-- 伴随着web项目启动,引入相关配置文件,spring的配置文件-->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:applicationContext.xml
+            classpath:mybatisConfig.xml
+        </param-value>
+    </context-param>
+
+    <!--context监听器用于监听项目的启动和销毁时context的内容变化,主要就是指加载的配置文件-->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <!--配置自定义的监听器-->
+    <listener>
+        <listener-class>wuxl.study.config.listener.MyContextListener</listener-class>
+    </listener>
+
+
+</web-app>

@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>wuxl.study</groupId>
+    <artifactId>SpringMVCDemo</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <name>SpringMVCDemo Maven Webapp</name>
+    <!-- FIXME change it to the project's website -->
+    <url>http://www.example.com</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+
+
+        <!--【【【【【【【【【     重要的框架性依赖   】】】】】】】   开始-->
+
+
+        <!--1.    Servlet+JSP   是最老最基础的web项目需要用到的包-->
+        <!--Servlet功能的实现需要这个包，比如说HttpServletRequest和HttpServletResponse等对象-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!--jsp的依赖-->
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>2.2</version>
+            <scope>provided</scope>
+        </dependency>
+        <!--引入jstl，书写jstl时要用到      jstl就是标签集，不写jsp的话不常用-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <!--1.    Servlet+JSP   是最老最基础的web项目需要用到的包     结束-->
+
+
+        <!--2.mysql  用于访问mysql数据库的包-->
+        <!--引入mysql-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.43</version>
+        </dependency>
+        <!--dbcp，还记得数据库连接池么？？还有C3P0，druid这些-->
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
+        </dependency>
+        <!--2.mysql  用于访问mysql数据库的包   结束-->
+
+
+        <!--3.mybatis相关，mybatis用于快速访问数据库-->
+        <!--引入mybatis-->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>3.4.5</version>
+        </dependency>
+        <!--引入mybatis和spring-->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>1.3.1</version>
+        </dependency>
+        <!--3.mybatis相关，mybatis用于快速访问数据库          结束-->
+
+
+        <!--4.SpringMVC项目中最重要的Spring框架，它主要用于反转控制IOC和切面编程AOP-->
+        <!--这个jar文件是所有应用都要用到的，它包含访问配置文件、
+       创建和管理bean以及进行InversionofControl/DependencyInjection（IoC/DI）操作相关的所有类。
+       如果应用只需基本的IoC/DI支持，引入spring-core.jar及spring-beans.jar文件就可以了。
+       外部依赖spring-core-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>4.2.4.RELEASE</version>
+        </dependency>
+
+        <!--提供对AspectJ的支持        -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+            <version>4.2.4.RELEASE</version>
+        </dependency>
+        <!--这个jar文件包含在应用中使用Spring的AOP特性时所需的类和源码级元数据支持。使用基于AOP的Spring特性，
+        如声明型事务管理（DeclarativeTransactionManagement），也要在应用里包含这个jar包。-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>4.2.4.RELEASE</version>
+        </dependency>
+        <!--   切面编程表达式的支持jar包-->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+        <!--切面编程注解功能的支持jar包-->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+
+        <!--这个jar文件包含对Spring对JDBC数据访问进行封装的所有类。-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>4.2.4.RELEASE</version>
+        </dependency>
+
+        <!--基于tx的事务管理需要-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>4.2.4.RELEASE</version>
+        </dependency>
+
+        <!--这个jar文件包含支持UI模版（Velocity，FreeMarker，JasperReports），
+        邮件服务，脚本服务(JRuby)，缓存Cache（EHCache），
+        任务计划Scheduling（quartz）方面的类。
+        外部依赖spring-context,(spring-jdbc,Velocity,FreeMarker,JasperReports,BSH,Groovy,JRuby,Quartz,EHCache)-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>4.2.4.RELEASE</version>
+        </dependency>
+        <!--spring表达式语言-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-expression</artifactId>
+            <version>4.2.4.RELEASE</version>
+        </dependency>
+        <!--基础web功能，如文件上传-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>4.2.4.RELEASE</version>
+        </dependency>
+        <!--spring测试，提供junit与mock测试功能-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>4.2.4.RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!--引入springmvc，mvc实现-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>4.2.4.RELEASE</version>
+        </dependency>
+        <!--4.SpringMVC项目中最重要的Spring框架，它主要用于反转控制IOC和切面编程AOP               结束-->
+
+        <!--5.Jredis的官方开发包-->
+        <!--jedis，Jedis是Redis官方推荐的Java连接开发工具。-->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>2.9.0</version>
+        </dependency>
+        <!--5.Jredis的官方开发包     结束    -->
+
+
+        <!--【【【【【【【【【     重要的框架性依赖   】】】】】】】   结束-->
+
+
+        <!--【【【【【【【【【     非 重要的功能性依赖   】】】】】】】   开始-->
+
+        <!--junit单元测试依赖,一般只有需要写junit测试的时候才会使用-->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+
+
+        <!--setget方法使用注解开发时需要它，不常用-->
+        <!--我用JDK11的maven3.5.0去打包时版本太低会报错-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.12</version>
+            <scope>provided</scope>
+        </dependency>
+
+
+        <!--非常好用   fastjson，把对象和json格式互转换时需要用到-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.36</version>
+        </dependency>
+        <!--jackson，把对象和json格式互转换时需要用到    实际上有了fastjson可能就不会用到这个jackson了-->
+        <!--<dependency>-->
+        <!--<groupId>com.fasterxml.jackson.core</groupId>-->
+        <!--<artifactId>jackson-databind</artifactId>-->
+        <!--<version>2.8.10</version>-->
+        <!--</dependency>-->
+
+
+        <!--ueditor，一个富文本编辑器-->
+        <!--<dependency>-->
+        <!--<groupId>com.gitee.qdbp.thirdparty</groupId>-->
+        <!--<artifactId>ueditor</artifactId>-->
+        <!--</dependency>-->
+
+
+        <!--commons-lang3    ？？？不知道干什么用的-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.4</version>
+        </dependency>
+        <!--commons-fileupload      ？？？不知道怎么用-->
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>1.3.3</version>
+        </dependency>
+
+
+        <!--引入log4j，生成日志需要这个，logforjava，4是for的近音-->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+
+
+        <!--【【【【【【【【【     非 重要的功能性依赖   】】】】】】】   结束-->
+
+    </dependencies>
+
+
+    <!--maven的管理-->
+    <build>
+
+        <!--如果使用Resources类去导入xml配置文件的时候，会报找不到文件， 需要添加<resources></resources>定向资源文件和文件类型-->
+        <resources>
+            <resource>
+                <directory>${basedir}/src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+        </resources>
+
+
+        <finalName>SpringMVCDemo</finalName>
+
+        <!--以下<pluginManagement></pluginManagement>内的内容都是maven自己的插件， 如果在里面添加generator插件时不会生效的，-->
+        <!--必须和<pluginManagement></pluginManagement>位于同一层级才会生效-->
+
+        <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+            <plugins>
+                <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>3.1.0</version>
+                </plugin>
+                <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
+                <plugin>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.0.2</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.0</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.22.1</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>3.2.2</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>2.5.2</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.8.2</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+
+        <!--myabtis逆向工程，不使用的时候最好注释掉该代码。以maven插件的形式引入mybatis-generator，方便管理和使用，如果以mybatis-generator-core的方式去使用，还需要写一个引入配置文件并执行的方法才会生效-->
+        <!--<plugins>-->
+            <!--<plugin>-->
+                <!--<groupId>org.mybatis.generator</groupId>-->
+                <!--<artifactId>mybatis-generator-maven-plugin</artifactId>-->
+                <!--<version>1.3.2</version>-->
+                <!--<configuration>-->
+                    <!--&lt;!&ndash;配置文件的位置&ndash;&gt;-->
+                    <!--<configurationFile>src/main/resources/mybatis-generatorConfig.xml</configurationFile>-->
+                    <!--<verbose>true</verbose>-->
+                    <!--<overwrite>true</overwrite>-->
+                <!--</configuration>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>Generate MyBatis Artifacts</id>-->
+                        <!--<goals>-->
+                            <!--<goal>generate</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+                <!--<dependencies>-->
+                    <!--<dependency>-->
+                        <!--<groupId>org.mybatis.generator</groupId>-->
+                        <!--<artifactId>mybatis-generator-core</artifactId>-->
+                        <!--<version>1.3.2</version>-->
+                    <!--</dependency>-->
+                    <!--<dependency>-->
+                        <!--<groupId>mysql</groupId>-->
+                        <!--<artifactId>mysql-connector-java</artifactId>-->
+                        <!--<version>5.1.43</version>-->
+                    <!--</dependency>-->
+                <!--</dependencies>-->
+            <!--</plugin>-->
+        <!--</plugins>-->
+
+    </build>
+</project>
