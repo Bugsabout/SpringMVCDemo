@@ -7,7 +7,11 @@
 1. 有符号列表
 2. 项目2
 ```java
-public static void main(){}
+public Test(){
+    public static void main(){
+    }
+}
+
 
 ```
 
