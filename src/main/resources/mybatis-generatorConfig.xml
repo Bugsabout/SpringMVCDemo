@@ -25,7 +25,7 @@
 
         <!--数据库链接地址账号密码-->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost/how2java"
-                        userId="root" password="i64937290wxl">
+                        userId="root" password="123456">
         </jdbcConnection>
 
 
@@ -38,17 +38,18 @@
         <!--targetPackage是java文件夹下包的路径-->
 
         <!--生成Model类存放位置-->
-        <javaModelGenerator targetPackage="wuxl.study.entity" targetProject="src\main\java">
+        <javaModelGenerator targetPackage="wuxl.study.entity" targetProject="src/main/java">
+            <!--  ！！ ！  enableSubPackages 该属性决定，如果找不到路径就根据配置的路径生成对应的文件夹-->
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
         <!--生成映射文件存放位置-->
-        <sqlMapGenerator targetPackage="wuxl.study.mapper" targetProject="src\main\java">
+        <sqlMapGenerator targetPackage="wuxl.study.mapper" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
         <!--生成Dao类存放位置-->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="wuxl.study.dao" targetProject="src\main\java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="wuxl.study.dao" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 

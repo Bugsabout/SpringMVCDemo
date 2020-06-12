@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!--applicationContext是spring的配置文件,如果在web.xml中引入这个配置文件,-->
     <!--那么配置文件中IOC的一些bean就会交予spring管理,在其加载时自动注入,不需要人工再去手动实体化-->
     <!--也就是说,如果需要一些在项目启动时就自动注入的类,可以配置在spring中,然后通过web.xml导入配置后自动注入-->
 
-
+    <!--自动扫描base-package下的包，看是否存在bean需要自动注入-->
+    <context:component-scan base-package="wuxl.study.entity"/>
 
 </beans>
