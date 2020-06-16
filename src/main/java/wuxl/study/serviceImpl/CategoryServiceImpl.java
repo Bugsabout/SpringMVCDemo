@@ -1,24 +1,29 @@
-package wuxl.study;
+package wuxl.study.serviceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import wuxl.study.dao.CategoryMapper;
 import wuxl.study.entity.Category;
 import wuxl.study.entity.CategoryExample;
+import wuxl.study.service.CategoryService;
 
 import java.util.List;
 
 /**
  * @author 吴小龙
  * @version V1.0
- * @Package wuxl.study
- * @date 2020/6/13 11:12
+ * @Package wuxl.study.serviceImpl
+ * @date 2020/6/13 12:34
  * @Description //TODO
  * @Copyright © 2020 上海安科瑞电气股份有限公司
  */
-public class Test {
+@Service
+public class CategoryServiceImpl implements CategoryService {
     @Autowired
-    private static CategoryMapper categoryMapper;
-    public static void main(String[] args) {
+    private CategoryMapper categoryMapper;
+
+    @Override
+    public void getCategory() {
         List<Category> categories = categoryMapper.selectByExample(new CategoryExample());
         for (Category category:categories){
             System.out.println(category.getName());

@@ -1,22 +1,42 @@
 <!DOCTYPE web-app PUBLIC
         "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
-        "http://java.sun.com/dtd/web-app_2_3.dtd" >
-
+        "http://java.sun.com/dtd/web-app_2_3.dtd">
 <web-app>
-
+    <!--！！！web.xml的作用：web.xml中的设置决定了你在前端路径访问的时候到底会跳转到什么地址-->
     <display-name>Archetype Created Web Application</display-name>
 
-    <!-- 伴随着web项目启动,引入相关配置文件,spring的配置文件-->
-    <context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:applicationContext.xml
-        </param-value>
-    </context-param>
+    <!--   一、作为一个SpringMVC框架的web项目，一定要将所有的请求提交给DispatcherServlet处理，为此需要添加这个Servlet才行。-->
+    <!--问题1：springmvc的配置文件一定要和servletname有关,样式为servletname-servlet.xml，并且需要放置在WEB_INF文件夹下才能生效？？-->
+    <!--答案1：通过在servlet中添加<init-param>标签初始化他的配置文件位置-->
+    <servlet>
+        <servlet-name>SpringMVC</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+
+        <!--该标签用于修改SpringMVC的默认文件位置和文件名，否则会自动定位到WEB-INF下-->
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:SpringMVC-servlet.xml</param-value>
+        </init-param>
+
+        <!--设置这个servlet在web项目启动的时候就加载-->
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SpringMVC</servlet-name>
+        <!--作用于所有的请求-->
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+
+
+
+
+
 
     <!--context监听器用于监听项目的启动和销毁时context的内容变化,主要就是指加载的配置文件-->
-    <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
+    <!--<listener>-->
+        <!--<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>-->
+    <!--</listener>-->
     <!--配置自定义的监听器-->
     <listener>
         <listener-class>wuxl.study.config.listener.MyContextListener</listener-class>

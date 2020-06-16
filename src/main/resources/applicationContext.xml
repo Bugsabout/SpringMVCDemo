@@ -2,13 +2,53 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd   http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!--applicationContext是spring的配置文件,如果在web.xml中引入这个配置文件,-->
     <!--那么配置文件中IOC的一些bean就会交予spring管理,在其加载时自动注入,不需要人工再去手动实体化-->
     <!--也就是说,如果需要一些在项目启动时就自动注入的类,可以配置在spring中,然后通过web.xml导入配置后自动注入-->
 
-    <!--自动扫描base-package下的包，看是否存在bean需要自动注入-->
-    <context:component-scan base-package="wuxl.study.entity"/>
+
+    <!--这个标签告诉Spring，所有的bean都放在这个文件夹中，你需要自己去找-->
+    <context:component-scan base-package="wuxl.study.controller"/>
+
+    <!--这个标签告诉Spring，我添加了注解的你都要给我配置好，我自己就不在-->
+    <!--<context:annotation-config/>-->
+
+    <!--这个标签告诉Spring，我有添加@Aspect就是切面业务，你也要给我自动配置好-->
+    <aop:aspectj-autoproxy/>
+
+
+
+
+
+    <!--//定义datasource用于下面的mybatis配置引用-->
+    <!--<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
+        <!--<property name="driverClassName">-->
+            <!--<value>com.mysql.jdbc.Driver</value>-->
+        <!--</property>-->
+        <!--<property name="url">-->
+            <!--<value>jdbc:mysql://localhost:3306/how2java?characterEncoding=UTF-8</value>-->
+
+        <!--</property>-->
+        <!--<property name="username">-->
+            <!--<value>root</value>-->
+        <!--</property>-->
+        <!--<property name="password">-->
+            <!--<value>i64937290wxl</value>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <!--<bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">-->
+        <!--<property name="typeAliasesPackage" value="wuxl.study.entity" />-->
+        <!--<property name="dataSource" ref="dataSource"/>-->
+        <!--<property name="mapperLocations" value="classpath:wuxl/study/mapper/*.xml"/>-->
+    <!--</bean>-->
+
+    <!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+        <!--<property name="basePackage" value="wuxl.study.dao"/>-->
+    <!--</bean>-->
+
 
 </beans>
