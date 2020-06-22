@@ -5,7 +5,7 @@
        xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd   http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <!--applicationContext是spring的配置文件,如果在web.xml中引入这个配置文件,-->
+    <!--解释：applicationContext是spring的配置文件,如果在web.xml中引入这个配置文件,-->
     <!--那么配置文件中IOC的一些bean就会交予spring管理,在其加载时自动注入,不需要人工再去手动实体化-->
     <!--也就是说,如果需要一些在项目启动时就自动注入的类,可以配置在spring中,然后通过web.xml导入配置后自动注入-->
 

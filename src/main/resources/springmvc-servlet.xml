@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
 <beans>
+    <!--配置文件介绍：这个是SpringMVC框架的配置文件，-->
+
+
+
 
     <!--一、配置了路径拦截器，用户访问特定路径的时候可以跳转到某个处理方法上，前提是该处理类已经注入，否则报错。-->
     <!--映射配置方式1：通过Handlermapping和实现Controller接口实现映射，这种方式非常麻烦-->
@@ -18,7 +22,7 @@
 
 
 
-    <!--映射配置方式2：除了配置DispatcherServlet，其他全部通过注解方式实现映射-->
+    <!--映射配置方式2：除了配置DispatcherServlet，其他全部通过注解方式实现映射，需要扫包-->
 
 
 

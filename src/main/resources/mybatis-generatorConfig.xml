@@ -5,21 +5,20 @@
 <generatorConfiguration>
 
 
-    <!--这个是maven插件用的配置文件，不用在项目启动时导入配置，spring中不用管理这个配置文件-->
-    <!--mybatis逆向工程配置文件，如果不需要使用逆向工程时可以直接在pom的maven管理中隐藏插件即可-->
+    <!--配置文件介绍：这个是mybatis-generator插件用的配置文件，不用在项目启动时导入配置，spring中不用管理这个配置文件。mybatis逆向工程配置文件，如果不需要使用逆向工程时可以直接在pom的maven管理中隐藏插件即可-->
 
 
-    <!--手动导入方式：数据库驱动-->
+    <!--手动导入方式：只能导入数据库驱动，maven导入的可忽略-->
     <!--
         如果IDE(eclipse或者idea) 项目里导入了jar包，那么就不需要配置了jar包的绝对路径了
          <classPathEntry    location="e:/project/mybatis/lib/mysql-connector-java-5.0.8-bin.jar"/>
     -->
-    <context id="DB2Tables" targetRuntime="MyBatis3">
+    <context id="DB2Tables" defaultModelType="flat" targetRuntime="MyBatis3"> <!-- context为必要标签，flat指明只生成一个实体类，部分key和继承类-->
 
 
-        <commentGenerator>
-            <property name="suppressDate" value="true"/>
-            <property name="suppressAllComments" value="false"/>
+        <commentGenerator> <!-- 如果需要实现特定注释，请通过重载实现 -->
+            <property name="suppressDate" value="true"/>        <!-- 组织时间戳的生成，默认false -->
+            <property name="suppressAllComments" value="false"/>  <!-- 阻止注释的生成   ，默认false -->
         </commentGenerator>
 
 
@@ -55,8 +54,8 @@
 
 
         <!--真正用于反向生成的格式模板，生成对应表的相关文件-->
-        <table tableName="category_" domainObjectName="Category" enableCountByExample="false"
-               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"
+        <table tableName="category_" domainObjectName="Category" enableCountByExample="true"
+               enableUpdateByExample="true" enableDeleteByExample="false" enableSelectByExample="true"
                selectByExampleQueryId="false">
             <property name="my.isgen.usekeys" value="true"/>
             <generatedKey column="id" sqlStatement="JDBC"/>

@@ -15,7 +15,6 @@ public Test(){
 
 [链接测试](http://www.baidu.com)
 
-```
 
 #学习Java框架后设计的一种通用型SpringMVC模板
 
@@ -127,14 +126,14 @@ public Test(){
     
 ### 2.Spring框架
 
-* ***介绍*** ：
 
-2.mybatis
+
+### 3.mybatis框架
 
 * ***介绍***
 
-    平时访问数据库的时候，我们都是使用了JDBC，需要自己去写SQL，进行Connection，Statement，ResultSet等声明的辅助类。
-    这样的访问方式会有会有繁琐和重复的代码，
+    平时访问数据库的时候，我们都是使用了JDBC驱动，需要自己创建工厂，链接以及声明语句，所有的连接都需要自己去写SQL，
+    进行Connection，Statement，ResultSet等声明的辅助类。这样的访问方式会有会有繁琐和重复的代码，
     
 * ***配置信息***
     
@@ -159,9 +158,9 @@ public Test(){
     
      ①方式1：mybatisConfig.xml     
         
-     位置：resources/mybatiConfig.xml
+     位置：resources/mybatisConfig.xml
         
-     具体的配置和作用可以参看mybatsConfig.xml中添加的注解，这个文件主要用于指定各个作用型文件的位置和数据库的信息
+     具体的配置和作用可以参看mybatisConfig.xml中添加的注解，这个文件主要用于指定各个作用型文件的位置和数据库的信息
     
     *PS*：文件创建好后不是直接就会作用的，需要在web.xml中设定项目启动时加载才能生效
     
