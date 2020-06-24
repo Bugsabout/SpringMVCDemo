@@ -16,12 +16,8 @@ import java.util.List;
  * @Copyright © 2020 上海安科瑞电气股份有限公司
  */
 public class Test {
-    @Autowired
-    private static CategoryMapper categoryMapper;
     public static void main(String[] args) {
-        List<Category> categories = categoryMapper.selectByExample(new CategoryExample());
-        for (Category category:categories){
-            System.out.println(category.getName());
-        }
+        System.out.println("测试输出");
     }
+
 }

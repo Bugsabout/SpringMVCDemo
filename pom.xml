@@ -257,11 +257,19 @@
 
         <!--如果使用Resources类去导入xml配置文件的时候，会报找不到文件， 需要添加<resources></resources>定向资源文件和文件类型-->
         <resources>
+            <!--<resource>-->
+                <!--<directory>${basedir}/src/main/java</directory>-->
+                <!--<includes>-->
+                    <!--<include>**/*.xml</include>-->
+                <!--</includes>-->
+            <!--</resource>-->
             <resource>
-                <directory>${basedir}/src/main/java</directory>
+                <directory>src/main/java</directory>
                 <includes>
+                    <include>**/*.properties</include>
                     <include>**/*.xml</include>
                 </includes>
+                <filtering>true</filtering>
             </resource>
         </resources>
 

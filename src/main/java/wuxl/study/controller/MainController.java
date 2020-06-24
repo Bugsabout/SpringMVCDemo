@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller//Controller本质是一个Servlet的接口，类通过 implements Controller实现路径跳转控制，同时还要在springmvc-servlet中配置这个路径才可以
 @RequestMapping("main")
-public class maincontroller {
+public class MainController {
 
     @RequestMapping(value = "test")
     public String testmethod(){
