@@ -15,7 +15,9 @@
         <!--答案1：如果需要自定义servlet的名字，需要通过在servlet中添加<init-param>标签初始化它的配置文件位置-->
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:springMVC.xml</param-value>
+            <param-value>classpath:springMVC.xml
+                classpath:applicationContext.xml
+            </param-value>
         </init-param>
         <!--设置这个servlet在web项目启动的时候就加载-->
         <load-on-startup>1</load-on-startup>
@@ -41,8 +43,6 @@
         <listener-class>wuxl.study.config.listener.MyContextListener</listener-class>
     </listener>
 
-
-    <!--字符集过滤器，转为utf-8格式获取-->
     <filter>
         <filter-name>characterEncodingFilter</filter-name>
         <filter-class>wuxl.study.config.filter.CharacterEncodingFilter</filter-class>
@@ -52,17 +52,15 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-    <!--ip地址过滤器-->
+
     <filter>
-        <filter-name>ipFilter</filter-name>
+        <filter-name>ipAddressFilter</filter-name>
         <filter-class>wuxl.study.config.filter.IpFilter</filter-class>
     </filter>
     <filter-mapping>
-        <filter-name>ipFilter</filter-name>
+        <filter-name>ipAddressFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-
-
 
 
 </web-app>

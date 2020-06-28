@@ -1,7 +1,8 @@
 package wuxl.study.controller;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.Controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,10 +15,9 @@ import javax.servlet.http.HttpServletResponse;
  * @Description //TODO
  * @Copyright © 2020 上海安科瑞电气股份有限公司
  */
-//@Controller
-public class IndexController implements Controller {
-//    @RequestMapping("/index")
-    @Override
+@Controller
+public class IndexController {
+    @RequestMapping("/index")
     public ModelAndView handleRequest(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
         ModelAndView mav = new ModelAndView("index.jsp");
         mav.addObject("message", "Hello Spring MVC");
