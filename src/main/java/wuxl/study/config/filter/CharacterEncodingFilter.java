@@ -11,7 +11,7 @@ import java.io.IOException;
  * @create: 2020-06-23 08:39
  * @description: 字符集过滤器
  */
-
+// 如果不想自定义就直接使用CharacterEncodingFilter也是可以的
 public class CharacterEncodingFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

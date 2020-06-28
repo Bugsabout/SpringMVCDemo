@@ -19,14 +19,15 @@
 
     <!-- 三、为了能正常扫描到@Aspect注解和对应的类，需要添加下面的component-scan-->
     <context:component-scan base-package="wuxl.study.aop"/>
+
     <!-- 四、这个标签告诉Spring，我有添加@Aspect就是切面业务，你也要给我自动配置好-->
     <aop:aspectj-autoproxy/>
 
-    <!-- 五、想要service也能注入，組要引入serviceImpl才行-->
+    <!-- 五、想要service也能注入，就要引入serviceImpl才行,比如在使用@Resource  private 资源的时候-->
     <context:component-scan base-package="wuxl.study.serviceImpl"/>
 
 
-    <!-- 六、定义datasource用于下面的mybatis配置引用-->
+    <!-- 六、定义datasource用于下面的mybatis配置引用,applicationContext中配置了就不需要在mybatisConfig中配置了,相当与集成mybatis-->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName">
             <value>com.mysql.jdbc.Driver</value>
@@ -52,6 +53,13 @@
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="wuxl.study.dao"/>
     </bean>
+
+
+
+
+
+
+
 
 
 </beans>

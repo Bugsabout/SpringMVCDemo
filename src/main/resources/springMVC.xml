@@ -28,7 +28,7 @@
 
 
     <!--映射配置方式2：除了配置DispatcherServlet，其他全部通过注解方式实现映射。要使用注解方式就需要在项目启动的使用自动注入类，-->
-    <!--我们通过@Controller实现注入，通过context:component通知spring给老子装配好这个包下注解了的类-->
+    <!--我们通过@Controller实现注入，通过context:component通知spring给我装配好这个包下注解了的类-->
     <context:component-scan base-package="wuxl.study.controller" />
 
 
@@ -42,5 +42,9 @@
         <!--&lt;!&ndash;定义后缀&ndash;&gt;-->
         <!--<property name="suffix" value=".jsp"/>-->
     <!--</bean>-->
+
+
+
+
 
 </beans>

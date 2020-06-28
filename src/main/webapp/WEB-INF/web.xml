@@ -5,6 +5,15 @@
     <!--！！！web.xml的作用：web.xml中的设置决定了你在前端路径访问的时候到底会跳转到什么地址-->
     <display-name>Archetype Created Web Application</display-name>
 
+    <!--这个servlet配置在dispatcherServlet之前可以保证你能正常访问.jpg文件-->
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>default</servlet-name>-->
+        <!--<url-pattern>*.jpg</url-pattern>-->
+    <!--</servlet-mapping>-->
+
+
+
+
 
     <servlet>
         <servlet-name>springMVC</servlet-name>
@@ -43,6 +52,8 @@
         <listener-class>wuxl.study.config.listener.MyContextListener</listener-class>
     </listener>
 
+
+    <!--字符集过滤器，转为utf-8格式获取-->
     <filter>
         <filter-name>characterEncodingFilter</filter-name>
         <filter-class>wuxl.study.config.filter.CharacterEncodingFilter</filter-class>
@@ -52,7 +63,7 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-
+    <!--ip地址过滤器-->
     <filter>
         <filter-name>ipAddressFilter</filter-name>
         <filter-class>wuxl.study.config.filter.IpFilter</filter-class>
@@ -61,6 +72,8 @@
         <filter-name>ipAddressFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+
+
 
 
 </web-app>
