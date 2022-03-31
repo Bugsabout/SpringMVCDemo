@@ -171,7 +171,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>4.2.4.RELEASE</version>
+            <version>5.3.18</version>
         </dependency>
         <!--4.SpringMVC项目中最重要的Spring框架，它主要用于反转控制IOC和切面编程AOP               结束-->
 
