@@ -222,7 +222,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.36</version>
+            <version>1.2.83</version>
         </dependency>
         <!--jackson，把对象和json格式互转换时需要用到    实际上有了fastjson可能就不会用到这个jackson了-->
         <!--<dependency>-->
